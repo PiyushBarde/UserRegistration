@@ -23,6 +23,7 @@ public class UserRegistrationMain {
         userRegistrationDetails.setPassword(passWord);
         UserRegistrationMethod userRegistrationMethod = new UserRegistrationMethod();
         userRegistrationMethod.verificationForNumber(userRegistrationDetails);
+        userRegistrationMethod.passwordVerification(userRegistrationDetails.getPassword());
         userRegistrationMethod.finalArgument(userRegistrationMethod.verificationNames(userRegistrationDetails.getFirstName()),userRegistrationMethod.verificationNames(userRegistrationDetails.getLastName()),userRegistrationMethod.verificationEmail(userRegistrationDetails.getEmail()),userRegistrationDetails);
     }
 }
