@@ -33,7 +33,7 @@ public class UserRegistrationMain {
         userRegistrationMethod.finalArgument(userRegistrationMethod.verificationNames(userRegistrationDetails.getFirstName()),
                 userRegistrationMethod.verificationNames(userRegistrationDetails.getLastName()),
                 userRegistrationMethod.verificationEmail(userRegistrationDetails.getEmail()),
-                userRegistrationMethod.verificationForNumber(userRegistrationDetails),
+                userRegistrationMethod.passwordVerification(userRegistrationDetails.getPassword()),
                 userRegistrationDetails);
     }
 }

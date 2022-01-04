@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class UserRegistrationMethod {
     private static final String FIRST_NAME_REGEX= "^[A-Z][a-z A-Z]{2,}";
-    private static final String EMAIL_REGEX= "^[abc]+[0-9.+!#$%&()_]{0,}+@[a-z0-9.]+[com]$";
+    private static final String EMAIL_REGEX= "^[abc0-9+\\.-]+@[a-z]+[\\.][a-z]{2,3}$";
     private static final String PASSWORD_REGEX= "(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*#?&])[a-zA-Z0-9@$!%*#?&]{8,}$";
 
     //----------------to do every operation by one method remove comments of program below------------------//
@@ -31,25 +31,31 @@ public class UserRegistrationMethod {
         Pattern pattern = Pattern.compile(PASSWORD_REGEX);
         Matcher matcher = pattern.matcher(dataToBeVerified);
         boolean invalid = matcher.matches();
-        System.out.println(invalid);
-        return invalid;
+        if(invalid==false)
+        {
+            System.err.println("Invalid Password");
+            return false;
+        }
+        else {
+            return true;
+        }
     }
-    public boolean verificationForNumber(UserRegistrationDetails userRegistrationDetails)
-    {
-                Pattern pattern = Pattern.compile("^[0-9\\s]*[0-9]");
-                Matcher matcher = pattern.matcher(userRegistrationDetails.getNumber());
-                boolean invalid = matcher.matches();
-                if(invalid==false)
-                {
-                    System.err.println("invalid number");
-                    return false;
-                }
-                else {
-                    return true;
-                }
-
-
-    }
+//    public boolean verificationForNumber(UserRegistrationDetails userRegistrationDetails)
+//    {
+//                Pattern pattern = Pattern.compile("^[0-9\\s]*[0-9]");
+//                Matcher matcher = pattern.matcher(userRegistrationDetails.getNumber());
+//                boolean invalid = matcher.matches();
+//                if(invalid==false)
+//                {
+//                    System.err.println("invalid number");
+//                    return false;
+//                }
+//                else {
+//                    return true;
+//                }
+//
+//
+//    }
 
 
 
@@ -82,8 +88,8 @@ public class UserRegistrationMethod {
         }
     }
 
-    public void finalArgument(boolean firstName,boolean lastName, boolean email,boolean phoneNumber,UserRegistrationDetails userRegistrationDetails){
-        if(firstName==true && lastName==true && email==true && phoneNumber==true) {
+    public void finalArgument(boolean firstName,boolean lastName, boolean email,boolean password,UserRegistrationDetails userRegistrationDetails){
+        if(firstName==true && lastName==true && email==true && password==true) {
             System.out.println("Details are correct...Welcome!! " + userRegistrationDetails.getFirstName() + " " + userRegistrationDetails.getLastName());
         }
     }
