@@ -11,19 +11,29 @@ public class UserRegistrationMain {
         String nameLast = sc.next();
         System.out.println("Enter your email = ");
         String emailAddress = sc.next();
-        System.out.println("Enter your phone number = ");
-        String phoneNumber = sc.next();
+//        System.out.println("Enter your phone number = ");
+//        String phoneNumber = sc.next();
         System.out.println("Create password = ");
         String passWord = sc.next();
+
+        //------------user detail------------//
         UserRegistrationDetails userRegistrationDetails = new UserRegistrationDetails();
         userRegistrationDetails.setFirstName(nameFirst);
-        userRegistrationDetails.setLastName(nameLast);
+       userRegistrationDetails.setLastName(nameLast);
         userRegistrationDetails.setEmail(emailAddress);
-        userRegistrationDetails.setNumber(phoneNumber);
+
         userRegistrationDetails.setPassword(passWord);
+ //       userRegistrationDetails.setNumber(phoneNumber);
+
+        //--------------methods-------------//
+
         UserRegistrationMethod userRegistrationMethod = new UserRegistrationMethod();
-        userRegistrationMethod.verificationForNumber(userRegistrationDetails);
+ //       userRegistrationMethod.verificationForNumber(userRegistrationDetails);
         userRegistrationMethod.passwordVerification(userRegistrationDetails.getPassword());
-        userRegistrationMethod.finalArgument(userRegistrationMethod.verificationNames(userRegistrationDetails.getFirstName()),userRegistrationMethod.verificationNames(userRegistrationDetails.getLastName()),userRegistrationMethod.verificationEmail(userRegistrationDetails.getEmail()),userRegistrationDetails);
+        userRegistrationMethod.finalArgument(userRegistrationMethod.verificationNames(userRegistrationDetails.getFirstName()),
+                userRegistrationMethod.verificationNames(userRegistrationDetails.getLastName()),
+                userRegistrationMethod.verificationEmail(userRegistrationDetails.getEmail()),
+                userRegistrationMethod.verificationForNumber(userRegistrationDetails),
+                userRegistrationDetails);
     }
 }
