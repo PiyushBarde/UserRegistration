@@ -4,6 +4,16 @@ public class UserRegistrationDetails {
     private String firstName;
     private String lastName;
     private String email;
+    private String number;
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+
 
     public String getEmail() {
         return email;
@@ -30,4 +40,6 @@ public class UserRegistrationDetails {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
+
 }
