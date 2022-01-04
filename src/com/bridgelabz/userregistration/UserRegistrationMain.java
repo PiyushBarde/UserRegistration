@@ -13,11 +13,14 @@ public class UserRegistrationMain {
         String emailAddress = sc.next();
         System.out.println("Enter your phone number = ");
         String phoneNumber = sc.next();
+        System.out.println("Create password = ");
+        String passWord = sc.next();
         UserRegistrationDetails userRegistrationDetails = new UserRegistrationDetails();
         userRegistrationDetails.setFirstName(nameFirst);
         userRegistrationDetails.setLastName(nameLast);
         userRegistrationDetails.setEmail(emailAddress);
         userRegistrationDetails.setNumber(phoneNumber);
+        userRegistrationDetails.setPassword(passWord);
         UserRegistrationMethod userRegistrationMethod = new UserRegistrationMethod();
         userRegistrationMethod.verificationForNumber(userRegistrationDetails);
         userRegistrationMethod.finalArgument(userRegistrationMethod.verificationNames(userRegistrationDetails.getFirstName()),userRegistrationMethod.verificationNames(userRegistrationDetails.getLastName()),userRegistrationMethod.verificationEmail(userRegistrationDetails.getEmail()),userRegistrationDetails);

@@ -8,11 +8,19 @@ public class UserRegistrationMethod {
     private static final String FIRST_NAME_REGEX= "^[A-Z][a-z A-Z]{2,}";
     private static final String EMAIL_REGEX= "^[abc]+[0-9.+!#$%&()_]{0,}+@[a-z0-9.]+[com]$";
     private static final String NUMBER_REGEX= "^[0-9]{1,}+[\t 0-9]{10}";
+    private static final String PASSWORD_REGEX= "^[0-9 a-z A_Z]{8,}";
     String temp;
 //    public void oneForAll(UserRegistrationDetails userRegistrationDetails){
 //        boolean isNumberValid = verificationForAll(NUMBER_REGEX,userRegistrationDetails.getNumber());
 //        System.out.println(isNumberValid);
 //    }
+    public boolean passwordVerification(UserRegistrationDetails userRegistrationDetails)
+    {
+        Pattern pattern = Pattern.compile(PASSWORD_REGEX);
+        Matcher matcher = pattern.matcher(userRegistrationDetails.getPassword());
+        boolean invalid = matcher.matches();
+        return invalid;
+    }
     public boolean verificationForNumber(UserRegistrationDetails userRegistrationDetails){
         if(userRegistrationDetails.getNumber().length()<13) {
             System.err.println("Invalid Number");
@@ -23,7 +31,14 @@ public class UserRegistrationMethod {
             Matcher matcher = pattern.matcher(userRegistrationDetails.getNumber());
             boolean invalid = matcher.matches();
             System.out.println(invalid);
-            return invalid;
+            if(invalid==false)
+            {
+                System.err.println("invalid Password(Enter Aleast * char");
+                return false;
+            }
+            else {
+                return true;
+            }
         }
 
     }
