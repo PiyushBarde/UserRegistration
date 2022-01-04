@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class UserRegistrationMethod {
     private static final String FIRST_NAME_REGEX= "^[A-Z][a-z A-Z]{2,}";
     private static final String EMAIL_REGEX= "^[abc]+[0-9.+!#$%&()_]{0,}+@[a-z0-9.]+[com]$";
-    private static final String PASSWORD_REGEX= "(?=.*[A-Z])[a-zA-Z0-9]{8,}$";
+    private static final String PASSWORD_REGEX= "(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$";
 
 
     //    public void oneForAll(UserRegistrationDetails userRegistrationDetails){
@@ -39,7 +39,7 @@ public class UserRegistrationMethod {
             System.out.println(invalid);
             if(invalid==false)
             {
-                System.err.println("invalid Password(Enter at least  * char");
+                System.err.println("invalid Password(Enter at least 8 char");
                 return false;
             }
             else {
